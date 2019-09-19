@@ -1,7 +1,7 @@
 require 'bundler/setup'
 require 'minitest/autorun'
 require 'mocha/setup'
-require 'omniauth/strategies/office365'
+require 'omniauth/strategies/ms_office365'
 
 OmniAuth.config.test_mode = true
 

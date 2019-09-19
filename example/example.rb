@@ -1,6 +1,6 @@
 $:.push File.dirname(__FILE__) + '/../lib'
 
-require 'omniauth-office365'
+require 'omniauth-ms-office365'
 require 'sinatra'
 require 'json'
 

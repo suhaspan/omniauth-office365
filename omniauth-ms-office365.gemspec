@@ -1,10 +1,10 @@
 # coding: utf-8
 lib = File.expand_path('../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require 'omniauth/office365/version'
+require 'omniauth/ms_office365/version'
 
 Gem::Specification.new do |spec|
-  spec.name          = "omniauth-office365"
+  spec.name          = "omniauth-ms-office365"
   spec.version       = Omniauth::Office365::VERSION
   spec.authors       = ['Suhas Nehete', 'Josef Šimánek']
   spec.email         = ['suhas0284@gmail.com', 'josef.simanek@gmail.com']
