@@ -6,16 +6,17 @@ module OmniAuth
       option :name, :office365
 
       option :client_options, {
-        site:          'https://outlook.office365.com/',
-        token_url:     'https://login.windows.net/common/oauth2/token',
-        authorize_url: 'https://login.windows.net/common/oauth2/authorize'
+          site:          'https://login.microsoftonline.com',
+          authorize_url: '/common/oauth2/v2.0/authorize',
+          token_url:     '/common/oauth2/v2.0/token'
       }
 
-      option :authorize_params, {
-        resource: 'https://graph.windows.net/'
-      }
+      def authorize_params
+        options.authorize_params[:scope] = 'offline_access openid User.Read Contacts.Read'
+        super
+      end
 
-      uid { raw_info["objectId"] }
+      uid { raw_info['id'] }
 
       info do
         {
@@ -32,7 +33,7 @@ module OmniAuth
       end
 
       def raw_info
-        @raw_info ||= access_token.get(authorize_params.resource + 'Me?api-version=1.5').parsed
+        @raw_info ||= access_token.get('https://graph.microsoft.com/v1.0/me').parsed
       end
     end
   end
